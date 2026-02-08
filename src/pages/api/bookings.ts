@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sql, createBooking, queryBookings, isDatabaseConfigured } from '@/lib/db';
+import { createBooking, queryBookings, isDatabaseConfigured } from '@/lib/db';
 import { BookingSchema } from '@/lib/validators';
 import { generateBookingReference } from '@/lib/helpers';
 
@@ -33,6 +33,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Generate booking reference
       const bookingReference = generateBookingReference();
 
+      // Calculate total nights
+      const checkIn = new Date(validatedData.check_in_date);
+      const checkOut = new Date(validatedData.check_out_date);
+      const totalNights = Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24));
+
       // Create booking
       const booking = await createBooking({
         room_id: validatedData.room_id,
@@ -41,11 +46,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         guest_phone: validatedData.guest_phone,
         check_in_date: validatedData.check_in_date,
         check_out_date: validatedData.check_out_date,
-        total_nights: validatedData.total_nights || 0,
-        base_price: validatedData.base_price || 0,
-        tour_addon_price: validatedData.tour_addon_price || 0,
-        discount_amount: validatedData.discount_amount || 0,
-        total_amount: validatedData.total_amount || 0,
+        total_nights: totalNights,
+        base_price: (req.body.base_price || 0) as number,
+        tour_addon_price: (req.body.tour_addon_price || 0) as number,
+        discount_amount: (req.body.discount_amount || 0) as number,
+        total_amount: (req.body.total_amount || 0) as number,
         payment_status: 'pending',
         status: 'confirmed',
         tour_preference: validatedData.tour_preference,
