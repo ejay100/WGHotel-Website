@@ -274,8 +274,10 @@ See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for production deployment instructi
 ## 📖 Documentation
 
 - **[API.md](docs/API.md)** - Complete API reference
+- **[CONFERENCE_ROOM_GUIDE.md](docs/CONFERENCE_ROOM_GUIDE.md)** - Conference room booking guide
 - **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Production deployment guide
 - **[database-schema.sql](docs/database-schema.sql)** - PostgreSQL database schema
+- **[conference-schema.sql](docs/conference-schema.sql)** - Conference room database schema
 
 ---
 

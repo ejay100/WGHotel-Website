@@ -4,6 +4,7 @@ const nextConfig = {
   output: 'export',
   basePath: '/WGHotel-Website',
   images: {
+    // Disable image optimization for static export (GitHub Pages requirement)
     unoptimized: true,
   },
 };
