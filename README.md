@@ -4,6 +4,8 @@
 
 A modern, full-stack hotel booking system for Winners Gold Hotel in Techiman, Bono East, Ghana. Built with Next.js, TypeScript, and Supabase.
 
+🌐 **Live Demo:** [https://ejay100.github.io/WGHotel-Website/](https://ejay100.github.io/WGHotel-Website/)
+
 ---
 
 ## 🚀 Quick Start
@@ -245,15 +247,28 @@ npm run dev
 
 ## 🚀 Deployment
 
+### GitHub Pages (Static Demo)
+
+This repository is configured to automatically deploy to GitHub Pages when changes are pushed to the main branch.
+
+**Live Demo:** [https://ejay100.github.io/WGHotel-Website/](https://ejay100.github.io/WGHotel-Website/)
+
+The deployment process:
+1. Push changes to the `main` branch
+2. GitHub Actions automatically builds the static site
+3. The site is deployed to GitHub Pages
+4. Visit the URL above to view the live site
+
+**Note:** The GitHub Pages deployment is a static demo. API routes and server-side features are not available. For full functionality including bookings and admin dashboard, deploy to Vercel (see below).
+
+### Production Deployment (Vercel)
+
 See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for production deployment instructions including:
 - Vercel deployment
 - Environment variable configuration
 - Domain setup
 - SSL/HTTPS configuration
-- PerCONFERENCE_ROOM_GUIDE.md](docs/CONFERENCE_ROOM_GUIDE.md)** - Conference room booking guide
-- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Production deployment guide
-- **[database-schema.sql](docs/database-schema.sql)** - PostgreSQL database schema
-- **[conference-schema.sql](docs/conference-schema.sql)** - Conference room
+
 ---
 
 ## 📖 Documentation
